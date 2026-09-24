@@ -1,11 +1,46 @@
-<!-- @dsCard group="Surfaces" height=330 subtitle="Logo, title, safe area and three-part footer" -->
+<!-- @dsCard group="Surfaces" height=470 subtitle="Logo, eyebrow, title, safe area and the two-part footer" -->
+<meta charset="utf-8">
 <link rel="stylesheet" href="../../dist/tokens.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
-<div style="padding:16px 32px; background:var(--surface-page); font-family:var(--font-sans); color:var(--ink)">
-  <div style="position:relative; width:640px; height:360px; background:var(--bg-mint); margin:0 auto; transform-origin:top left; overflow:hidden; zoom:0.75">
-    <img src="../../assets/logos/mailercloud-logo.png" alt="mailercloud" style="position:absolute; left:43px; top:19px; width:73px; height:15px; object-fit:contain">
-    <div style="position:absolute; left:43px; top:51px; font-size:8px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--text-secondary)">Client Name · Context</div><div style="position:absolute; left:43px; top:63px; font-size:21px; font-weight:700; line-height:1.1">One mailbox in, MailerCloud out</div>
-    <div style="position:absolute; left:43px; top:110px; width:554px; height:190px; border:2px dashed rgba(2,10,19,0.35); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--text-secondary)">content area, centred: 1664 × 588 at full size</div>
-    <div style="position:absolute; left:43px; right:43px; bottom:21px; display:flex; font-size:8px; color:var(--text-secondary)"><div style="flex:1">www.mailercloud.com</div><div style="flex:1"></div><div style="flex:1; text-align:right">04 / 18</div></div>
+<style>
+  /* Previews are drawn at slide scale (1664px content width, the sizes in the
+     type scale) and shrunk to fit the page, so what you read here is the real
+     component, not a miniature drawn with smaller numbers. */
+  body { margin: 0; }
+  .ds-scale { zoom: .5; font-family: var(--font-sans); color: var(--text-primary); }
+  .ds-ground { width: 1664px; padding: var(--space-5); }
+  .ds-row { display: flex; gap: var(--space-4); }
+  .ds-col { display: flex; flex-direction: column; gap: var(--space-2); }
+  .ds-card { background: var(--card-bg); border-radius: var(--radius-card);
+             box-shadow: var(--shadow-card); padding: var(--space-5); }
+  .ds-card-dark { background: var(--card-inverse-bg); color: var(--text-inverse);
+                  border-radius: var(--radius-card); box-shadow: var(--shadow-card-dark);
+                  padding: var(--space-5); }
+  .ds-pill { border-radius: var(--radius-pill);
+             padding: var(--space-pill-y) var(--space-pill-x); }
+  p, h1, h2, h3 { margin: 0; }
+  .ds-slide-scale { zoom: .4; }
+  .ds-slide { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+  .ds-logo { position: absolute; left: var(--space-margin); top: var(--space-logo-top);
+             width: 220px; height: 45px; object-fit: contain; }
+  .ds-eyebrow { position: absolute; left: var(--space-margin); top: var(--space-title-top);
+                letter-spacing: 2px; text-transform: uppercase; color: var(--text-secondary); }
+  .ds-title { position: absolute; left: var(--space-margin); top: 184px; }
+  .ds-safe { position: absolute; left: var(--space-margin); top: 292px; width: 1664px; height: 588px;
+             border: 3px dashed var(--slate); border-radius: var(--radius-tile);
+             display: flex; align-items: center; justify-content: center;
+             color: var(--text-secondary); font-weight: 400; }
+  .ds-foot { position: absolute; left: var(--space-margin); right: var(--space-margin);
+             bottom: var(--space-footer); display: flex;
+             color: var(--text-secondary); font-weight: 400; }
+</style>
+<div class="ds-scale ds-slide-scale"><div class="ds-slide" style="background:var(--bg-mint)">
+  <img src="../../assets/logos/mailercloud-logo.png" alt="mailercloud" class="ds-logo">
+  <p class="t-label ds-eyebrow">Client Name · Context</p>
+  <h2 class="t-title ds-title">One mailbox in, MailerCloud out</h2>
+  <div class="ds-safe t-label">content area, centred: 1664 &#215; 588</div>
+  <div class="ds-foot t-label">
+    <span style="flex:1">www.mailercloud.com</span>
+    <span style="flex:1; text-align:right">04 / 18</span>
   </div>
-</div>
+</div></div>

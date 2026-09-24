@@ -14,7 +14,7 @@ Charts and diagrams exist to make one point quickly. Each has a title that says 
 
 ## Colour
 
-- Default bar `chart-1` (`navy`); the one bar to notice `chart-2` (`brand-blue`); comparison or previous period `chart-3` (`slate`); a residual "all other" segment `chart-light`.
+- Default bar `chart-1` (`navy`); the one bar to notice `chart-2` (`brand-blue`); comparison or previous period `chart-3` (`slate`); a residual "all other" segment `chart-light`. (`chart-grey` is the old name for `chart-3` and is deprecated in 3.1.)
 - Categorical series follow `chart-1` to `chart-5` in order. `chart-4` and `chart-5` are close in lightness: label them directly.
 - Never encode meaning in colour alone; every mark carries a value label or a word.
 

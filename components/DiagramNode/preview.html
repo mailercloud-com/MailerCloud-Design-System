@@ -1,36 +1,59 @@
-<!-- @dsCard group="Diagrams" height=340 subtitle="Nodes, lane labels and connectors" -->
+<!-- @dsCard group="Diagrams" height=360 subtitle="Nodes, lane labels and numbered connectors" -->
+<meta charset="utf-8">
 <link rel="stylesheet" href="../../dist/tokens.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
-<div style="background:var(--bg-lime); padding:28px 32px; font-family:var(--font-sans); color:var(--ink)">
-  <div style="display:flex; align-items:center; gap:0">
+<style>
+  /* Previews are drawn at slide scale (1664px content width, the sizes in the
+     type scale) and shrunk to fit the page, so what you read here is the real
+     component, not a miniature drawn with smaller numbers. */
+  body { margin: 0; }
+  .ds-scale { zoom: .5; font-family: var(--font-sans); color: var(--text-primary); }
+  .ds-ground { width: 1664px; padding: var(--space-5); }
+  .ds-row { display: flex; gap: var(--space-4); }
+  .ds-col { display: flex; flex-direction: column; gap: var(--space-2); }
+  .ds-card { background: var(--card-bg); border-radius: var(--radius-card);
+             box-shadow: var(--shadow-card); padding: var(--space-5); }
+  .ds-card-dark { background: var(--card-inverse-bg); color: var(--text-inverse);
+                  border-radius: var(--radius-card); box-shadow: var(--shadow-card-dark);
+                  padding: var(--space-5); }
+  .ds-pill { border-radius: var(--radius-pill);
+             padding: var(--space-pill-y) var(--space-pill-x); }
+  p, h1, h2, h3 { margin: 0; }
+  .ds-node { background: var(--card-bg); border: 3px solid var(--node-line);
+             border-radius: var(--radius-card); box-shadow: var(--shadow-small);
+             padding: var(--space-4); }
+  .ds-caption { width: 220px; text-align: center; }
+</style>
+<div class="ds-scale"><div class="ds-ground" style="background:var(--bg-lime)">
+  <div class="ds-row" style="align-items:center; gap:0">
     <div style="flex:1">
-      <div style="display:inline-block; background:var(--surface-raised); border:3px solid var(--border-strong); border-radius:var(--radius-pill); padding:4px 16px; font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase">Inbound · No change</div>
-      <div style="margin-top:10px; background:var(--card-bg); border:3px solid var(--node-line); border-radius:var(--radius-card); box-shadow:var(--shadow-small); padding:16px 20px">
-        <div style="font-size:18px; font-weight:700">Microsoft 365</div>
-        <div style="font-size:14px; line-height:1.4; margin-top:2px">One shared mailbox, MX unchanged</div>
+      <span class="ds-pill t-label" style="display:inline-block; background:var(--surface-raised); border:3px solid var(--border-strong); letter-spacing:1px; text-transform:uppercase">Inbound · No change</span>
+      <div class="ds-node ds-col" style="margin-top:var(--space-2)">
+        <p class="t-lead" style="font-weight:700">Microsoft 365</p>
+        <p class="t-body">One shared mailbox, MX unchanged</p>
       </div>
     </div>
-    <div style="width:110px; text-align:center; font-size:13px; font-weight:500; line-height:1.4">
-      <div><b>2</b> Synced to<br>the workspace</div>
-      <svg width="110" height="14" viewBox="0 0 110 14" aria-hidden="true"><line x1="4" y1="7" x2="100" y2="7" stroke="var(--border-strong)" stroke-width="3" stroke-linecap="round"/><path d="M92 1 L104 7 L92 13" fill="none" stroke="var(--border-strong)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="ds-caption">
+      <p class="t-label" style="font-weight:400"><b>2</b> Synced to<br>the workspace</p>
+      <svg width="220" height="28" viewBox="0 0 220 28" aria-hidden="true"><line x1="8" y1="14" x2="200" y2="14" stroke="var(--border-strong)" stroke-width="6" stroke-linecap="round"/><path d="M184 2 L208 14 L184 26" fill="none" stroke="var(--border-strong)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <div style="flex:1; background:var(--card-bg); border:3px solid var(--node-line); border-radius:var(--radius-card); box-shadow:var(--shadow-small); padding:16px 20px; align-self:flex-end">
-      <div style="font-size:18px; font-weight:700">Support workspace</div>
-      <div style="font-size:14px; line-height:1.4; margin-top:2px">Helpdesk or support app</div>
-    </div>
-  </div>
-  <div style="display:flex; align-items:center; margin-top:22px">
-    <div style="flex:1; background:var(--node-inverse-bg); border:3px solid var(--node-inverse-bg); border-radius:var(--radius-card); box-shadow:var(--shadow-small); padding:16px 20px; color:var(--text-inverse)">
-      <div style="font-size:18px; font-weight:700">MailerCloud</div>
-      <div style="font-size:14px; line-height:1.4; margin-top:2px; color:var(--bg-lime)">SMTP relay or Email API, signed and logged</div>
-    </div>
-    <div style="width:110px; text-align:center; font-size:13px; font-weight:500; line-height:1.4">
-      <div><b>4</b> Signed reply<br>to the inbox</div>
-      <svg width="110" height="14" viewBox="0 0 110 14" aria-hidden="true"><line x1="106" y1="7" x2="14" y2="7" stroke="var(--action-primary)" stroke-width="5" stroke-linecap="round"/><path d="M22 1 L10 7 L22 13" fill="none" stroke="var(--action-primary)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <div style="flex:1; background:var(--card-bg); border:3px solid var(--node-line); border-radius:var(--radius-card); box-shadow:var(--shadow-small); padding:16px 20px">
-      <div style="font-size:18px; font-weight:700">Customers</div>
-      <div style="font-size:14px; line-height:1.4; margin-top:2px">Gmail, Outlook, Yahoo, corporate mail</div>
+    <div class="ds-node ds-col" style="flex:1; align-self:flex-end">
+      <p class="t-lead" style="font-weight:700">Support workspace</p>
+      <p class="t-body">Helpdesk or support app</p>
     </div>
   </div>
-</div>
+  <div class="ds-row" style="align-items:center; margin-top:var(--space-5); gap:0">
+    <div class="ds-node ds-col" style="flex:1; background:var(--node-inverse-bg); border-color:var(--node-inverse-bg); color:var(--text-inverse)">
+      <p class="t-lead" style="font-weight:700">MailerCloud</p>
+      <p class="t-body" style="color:var(--text-inverse-muted)">SMTP relay or Email API, signed and logged</p>
+    </div>
+    <div class="ds-caption">
+      <p class="t-label" style="font-weight:400"><b>4</b> Signed reply<br>to the inbox</p>
+      <svg width="220" height="28" viewBox="0 0 220 28" aria-hidden="true"><line x1="212" y1="14" x2="28" y2="14" stroke="var(--action-primary)" stroke-width="10" stroke-linecap="round"/><path d="M44 2 L20 14 L44 26" fill="none" stroke="var(--action-primary)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="ds-node ds-col" style="flex:1">
+      <p class="t-lead" style="font-weight:700">Customers</p>
+      <p class="t-body">Gmail, Outlook, Yahoo, corporate mail</p>
+    </div>
+  </div>
+</div></div>

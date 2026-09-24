@@ -8,7 +8,8 @@ The BarChart compares a few values or shows a stepped plan, with the value print
 - Bars start at zero; height is proportional to the value (400px for the largest on a slide).
 - Label every bar; no gridlines unless the reader must read across.
 - Use bars for up to about eight values. For more points use a line; for parts of a whole use one stacked bar with labels, never a pie.
-- Axis and label text is `text-secondary` or `text-primary`, 24px or larger on slides.
+- Axis and label text is `text-secondary` or `text-primary`, `t-label` or larger on slides.
+- A source line under the chart cites third-party data; links in it are `text-link` and underlined.
 - Keep the chart on a ground where the highlighted bar passes 3:1 (cream, paper, white or lime; not sky).
 
 The consumer provides the values and units.

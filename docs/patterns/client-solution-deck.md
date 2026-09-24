@@ -2,7 +2,7 @@
 
 A repeatable deck for a client who needs to move a class of outbound email (support replies, order confirmations, alerts, one-to-one mail) off a general-purpose mailbox and onto MailerCloud SMTP or the Email API. First used for a support-email migration off Microsoft 365.
 
-Built by the deck kit (`build_deck.py` plus a client config). The kit reads the tokens in this system, so a design change here reaches every deck the next time it is built.
+Built by the deck kit (`build_deck.py` plus a client config). The kit loads `tokens/tokens.json` at run time and restates no value of its own, so a design change here reaches every deck the next time it is built. `scripts/check_usage.py` fails the build if a literal creeps back in.
 
 ## When to use it
 
@@ -33,7 +33,7 @@ Do not use it for campaign or marketing migrations (different flow: lists, conse
 | 17 | Appendix | Glossary and assumptions | Noun phrase |
 | 18 | Closing | Restate the outcome, offices | "Thank you" |
 
-Every content slide carries an eyebrow with the client name and section, and its content is centred with generous air (see Spacing and layout in the README). The builder writes open layouts, not boxed tables.
+Every content slide carries an eyebrow with the client name and section, and its content is centred with generous air (see Spacing and layout in [the brand book](../brand-book.md)). The builder writes open layouts, not boxed tables.
 
 Titles are at most 40 characters so they stay on one line at 64px. Argument slides use action titles (a claim); reference slides may use a noun phrase.
 

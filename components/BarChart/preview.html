@@ -1,12 +1,52 @@
-<!-- @dsCard group="Data" height=300 subtitle="Bars with direct value labels; one highlighted bar" -->
+<!-- @dsCard group="Data" height=470 subtitle="Bars with direct value labels, one highlighted bar, and the series order" -->
+<meta charset="utf-8">
 <link rel="stylesheet" href="../../dist/tokens.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
-<div style="background:var(--bg-cream); padding:24px 32px; font-family:var(--font-sans); color:var(--ink)">
-  <div style="font-size:16px; font-weight:700; margin-bottom:12px">Daily volume ramp, emails per day</div>
-  <div style="display:flex; align-items:flex-end; gap:16px; height:190px">
-    <div style="flex:1; text-align:center"><div style="font-size:14px; font-weight:700">10K</div><div style="height:63px; background:var(--chart-1); border-radius:var(--radius-tile) var(--radius-tile) 0 0; margin-top:4px"></div><div style="font-size:14px; margin-top:6px">Day 1</div></div>
-    <div style="flex:1; text-align:center"><div style="font-size:14px; font-weight:700">15K</div><div style="height:95px; background:var(--chart-1); border-radius:var(--radius-tile) var(--radius-tile) 0 0; margin-top:4px"></div><div style="font-size:14px; margin-top:6px">Day 2</div></div>
-    <div style="flex:1; text-align:center"><div style="font-size:14px; font-weight:700">20K</div><div style="height:127px; background:var(--chart-1); border-radius:var(--radius-tile) var(--radius-tile) 0 0; margin-top:4px"></div><div style="font-size:14px; margin-top:6px">Day 3</div></div>
-    <div style="flex:1; text-align:center"><div style="font-size:14px; font-weight:700">30K</div><div style="height:150px; background:var(--chart-2); border-radius:var(--radius-tile) var(--radius-tile) 0 0; margin-top:4px"></div><div style="font-size:14px; margin-top:6px">Day 4 onward</div></div>
+<style>
+  /* Previews are drawn at slide scale (1664px content width, the sizes in the
+     type scale) and shrunk to fit the page, so what you read here is the real
+     component, not a miniature drawn with smaller numbers. */
+  body { margin: 0; }
+  .ds-scale { zoom: .5; font-family: var(--font-sans); color: var(--text-primary); }
+  .ds-ground { width: 1664px; padding: var(--space-5); }
+  .ds-row { display: flex; gap: var(--space-4); }
+  .ds-col { display: flex; flex-direction: column; gap: var(--space-2); }
+  .ds-card { background: var(--card-bg); border-radius: var(--radius-card);
+             box-shadow: var(--shadow-card); padding: var(--space-5); }
+  .ds-card-dark { background: var(--card-inverse-bg); color: var(--text-inverse);
+                  border-radius: var(--radius-card); box-shadow: var(--shadow-card-dark);
+                  padding: var(--space-5); }
+  .ds-pill { border-radius: var(--radius-pill);
+             padding: var(--space-pill-y) var(--space-pill-x); }
+  p, h1, h2, h3 { margin: 0; }
+</style>
+<div class="ds-scale"><div class="ds-ground" style="background:var(--bg-cream)">
+  <p class="t-heading">Daily volume ramp, emails per day</p>
+  <div class="ds-row" style="align-items:flex-end; height:340px; margin-top:var(--space-4)">
+    <div style="flex:1; text-align:center"><p class="t-body" style="font-weight:700">10K</p><div style="height:110px; background:var(--chart-1); border-radius:var(--radius-tile) var(--radius-tile) 0 0; margin-top:var(--space-1)"></div><p class="t-label" style="margin-top:var(--space-1); font-weight:400">Day 1</p></div>
+    <div style="flex:1; text-align:center"><p class="t-body" style="font-weight:700">15K</p><div style="height:165px; background:var(--chart-1); border-radius:var(--radius-tile) var(--radius-tile) 0 0; margin-top:var(--space-1)"></div><p class="t-label" style="margin-top:var(--space-1); font-weight:400">Day 2</p></div>
+    <div style="flex:1; text-align:center"><p class="t-body" style="font-weight:700">20K</p><div style="height:220px; background:var(--chart-1); border-radius:var(--radius-tile) var(--radius-tile) 0 0; margin-top:var(--space-1)"></div><p class="t-label" style="margin-top:var(--space-1); font-weight:400">Day 3</p></div>
+    <div style="flex:1; text-align:center"><p class="t-body" style="font-weight:700">18K</p><div style="height:198px; background:var(--chart-3); border-radius:var(--radius-tile) var(--radius-tile) 0 0; margin-top:var(--space-1)"></div><p class="t-label" style="margin-top:var(--space-1); font-weight:400">Last week</p></div>
+    <div style="flex:1; text-align:center"><p class="t-body" style="font-weight:700">30K</p><div style="height:280px; background:var(--chart-2); border-radius:var(--radius-tile) var(--radius-tile) 0 0; margin-top:var(--space-1)"></div><p class="t-label" style="margin-top:var(--space-1); font-weight:400">Day 4 onward</p></div>
   </div>
-</div>
+  <div class="ds-row" style="align-items:center; gap:var(--space-3); margin-top:var(--space-4)">
+    <span class="t-label" style="color:var(--text-secondary); font-weight:400">Series order</span>
+    <span class="t-label"><span style="display:inline-block; width:24px; height:24px; border-radius:var(--radius-tile); background:var(--chart-1)"></span> 1</span>
+    <span class="t-label"><span style="display:inline-block; width:24px; height:24px; border-radius:var(--radius-tile); background:var(--chart-2)"></span> 2</span>
+    <span class="t-label"><span style="display:inline-block; width:24px; height:24px; border-radius:var(--radius-tile); background:var(--chart-3)"></span> 3</span>
+    <span class="t-label"><span style="display:inline-block; width:24px; height:24px; border-radius:var(--radius-tile); background:var(--chart-4)"></span> 4</span>
+    <span class="t-label"><span style="display:inline-block; width:24px; height:24px; border-radius:var(--radius-tile); background:var(--chart-5)"></span> 5</span>
+  </div>
+  <p class="t-body" style="font-weight:700; margin-top:var(--space-5)">What day 4 is made of</p>
+  <div class="ds-row" style="gap:0; margin-top:var(--space-2); border-radius:var(--radius-tile); overflow:hidden; height:56px">
+    <div style="width:55%; background:var(--chart-1)"></div>
+    <div style="width:30%; background:var(--chart-2)"></div>
+    <div style="width:15%; background:var(--chart-light)"></div>
+  </div>
+  <div class="ds-row" style="gap:0; margin-top:var(--space-1)">
+    <span class="t-label" style="width:55%; font-weight:400">Support replies 16.5K</span>
+    <span class="t-label" style="width:30%; font-weight:400">Order confirmations 9K</span>
+    <span class="t-label" style="width:15%; font-weight:400">All other 4.5K</span>
+  </div>
+  <p class="t-label" style="color:var(--text-secondary); font-weight:400; margin-top:var(--space-4)">Source: <a href="https://www.mailercloud.com" style="color:var(--text-link); text-decoration:underline">mailercloud.com</a> delivery logs, 23 Sep 2026</p>
+</div></div>

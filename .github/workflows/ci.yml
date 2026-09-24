@@ -15,5 +15,9 @@ jobs:
         run: python scripts/build_tokens.py --check
       - name: Contrast pairs pass
         run: python scripts/check_contrast.py
+      - name: Every ground has a contrast pair
+        run: python scripts/check_contrast.py --coverage
+      - name: Consumers use tokens, not literals
+        run: python scripts/check_usage.py
       - name: Deck kit builds the example deck and passes its lint
         run: python tools/deck-kit/build_deck.py tools/deck-kit/config.example.json /tmp/example-deck --logo /_blob/example

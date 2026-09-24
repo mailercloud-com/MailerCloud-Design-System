@@ -1,5 +1,5 @@
 {
-  "$description": "MailerCloud Design System 3.0",
+  "$description": "MailerCloud Design System 3.1",
   "color": {
     "ink": {
       "$type": "color",
@@ -15,6 +15,11 @@
       "$type": "color",
       "$value": "#7d8e9f",
       "$description": "Brand guide secondary #7D8E9F. Rules, icons, disabled states and chart neutrals. Not for text: 3.3:1 on surface-card."
+    },
+    "slate-light": {
+      "$type": "color",
+      "$value": "#c7d7ec",
+      "$description": "Secondary text inside navy cards and diagram nodes, where ink-muted would disappear (12.1:1 on navy)."
     },
     "navy": {
       "$type": "color",
@@ -45,6 +50,11 @@
       "$type": "color",
       "$value": "#f5f7fa",
       "$description": "Alternate table rows and KPI tiles on white report pages. Ink text."
+    },
+    "surface-card-soft": {
+      "$type": "color",
+      "$value": "rgba(253,253,248,0.30)",
+      "$description": "Translucent wash of surface-card, used behind a lane in a flow diagram so the pastel ground shows through. Decoration only; never put text directly on it."
     },
     "bg-sky": {
       "$type": "color",
@@ -90,6 +100,11 @@
       "$type": "color",
       "$value": "#d9dfe8",
       "$description": "Table rules, footer rules and card outlines on white pages."
+    },
+    "line-soft": {
+      "$type": "color",
+      "$value": "rgba(2,10,19,0.16)",
+      "$description": "Hairline rule for open rows on a pastel ground. Translucent, so it reads as the ground darkened rather than as the grey of line."
     },
     "attention-bg": {
       "$type": "color",
@@ -139,7 +154,7 @@
     "chart-grey": {
       "$type": "color",
       "$value": "{color.slate}",
-      "$description": "The comparison or previous-period bar in a chart (alias of slate)."
+      "$description": "The comparison or previous-period bar in a chart (alias of slate). DEPRECATED in 3.1: chart-3 is the same value and names the series position. Use chart-3."
     },
     "chart-light": {
       "$type": "color",
@@ -176,6 +191,11 @@
       "$value": "{color.surface-card}",
       "$description": "Semantic. Text on navy and other inverse surfaces."
     },
+    "text-inverse-muted": {
+      "$type": "color",
+      "$value": "{color.slate-light}",
+      "$description": "Semantic. Secondary text on navy and other inverse surfaces. The inverse counterpart of text-secondary."
+    },
     "text-link": {
       "$type": "color",
       "$value": "{color.brand-blue}",
@@ -201,6 +221,11 @@
       "$value": "{color.line}",
       "$description": "Semantic. Table rules and footer hairlines."
     },
+    "border-hairline": {
+      "$type": "color",
+      "$value": "{color.line-soft}",
+      "$description": "Semantic. Row rules in an open layout on a pastel ground."
+    },
     "border-strong": {
       "$type": "color",
       "$value": "{color.ink}",
@@ -214,7 +239,7 @@
     "focus-ring": {
       "$type": "color",
       "$value": "{color.brand-blue}",
-      "$description": "Semantic. Keyboard focus outline on interactive artefacts, 3px, offset 2px."
+      "$description": "Semantic. Keyboard focus outline on interactive artefacts, 3px, offset 2px. DEPRECATED in 3.1: this system ships documents, not interfaces, so nothing consumes it. It returns when a product-UI tier is added; do not use it meanwhile."
     },
     "status-success": {
       "$type": "color",
@@ -323,6 +348,26 @@
       "$value": "40px",
       "$description": "Gap between a slide title and its content; card padding on sparse slides."
     },
+    "space-6": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$description": "Gap between columns in a two- or three-column slide, and between a card column and a chart."
+    },
+    "space-7": {
+      "$type": "dimension",
+      "$value": "56px",
+      "$description": "Gap between a column group and the banner beneath it."
+    },
+    "space-pill-y": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Vertical padding inside a Pill."
+    },
+    "space-pill-x": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$description": "Horizontal padding inside a Pill."
+    },
     "space-margin": {
       "$type": "dimension",
       "$value": "128px",
@@ -423,6 +468,158 @@
         "Courier New",
         "monospace"
       ]
+    }
+  },
+  "typography": {
+    "t-display": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "88px",
+        "fontWeight": 700,
+        "lineHeight": "1.1"
+      },
+      "$description": "Slides (1920 x 1080). Cover and closing titles, one big number per slide."
+    },
+    "t-title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "64px",
+        "fontWeight": 700,
+        "lineHeight": "1.1"
+      },
+      "$description": "Slides (1920 x 1080). Slide title, one line where possible."
+    },
+    "t-heading": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "40px",
+        "fontWeight": 700,
+        "lineHeight": "1.2"
+      },
+      "$description": "Slides (1920 x 1080). Card heading."
+    },
+    "t-lead": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "32px",
+        "fontWeight": 400,
+        "lineHeight": "1.4"
+      },
+      "$description": "Slides (1920 x 1080). Subtitle and body text in sparse cards."
+    },
+    "t-body": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "26px",
+        "fontWeight": 400,
+        "lineHeight": "1.4"
+      },
+      "$description": "Slides (1920 x 1080). Body text in dense cards and diagram nodes."
+    },
+    "t-label": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "24px",
+        "fontWeight": 600,
+        "lineHeight": "1.3"
+      },
+      "$description": "Slides (1920 x 1080). Pills, diagram captions, footers. Nothing on a slide is smaller than this."
+    },
+    "t-code": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.mono}",
+        "fontSize": "24px",
+        "fontWeight": 400,
+        "lineHeight": "1.35"
+      },
+      "$description": "Code. API examples on navy code cards."
+    },
+    "r-title": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "26pt",
+        "fontWeight": 700,
+        "lineHeight": "1.15"
+      },
+      "$description": "Reports and proposals (A4). Document title on a report or proposal cover."
+    },
+    "r-heading": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "14pt",
+        "fontWeight": 700,
+        "lineHeight": "1.25"
+      },
+      "$description": "Reports and proposals (A4). Section heading."
+    },
+    "r-subheading": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "10.5pt",
+        "fontWeight": 700,
+        "lineHeight": "1.3"
+      },
+      "$description": "Reports and proposals (A4). Sub-heading inside a section."
+    },
+    "r-body": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "10pt",
+        "fontWeight": 400,
+        "lineHeight": "1.35"
+      },
+      "$description": "Reports and proposals (A4). Report body text. The floor for running text in a report."
+    },
+    "r-table": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "8.8pt",
+        "fontWeight": 400,
+        "lineHeight": "1.25"
+      },
+      "$description": "Reports and proposals (A4). DataTable cell text in a report."
+    },
+    "r-footnote": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "8.3pt",
+        "fontWeight": 400,
+        "lineHeight": "1.3"
+      },
+      "$description": "Reports and proposals (A4). Footnotes, source lines and the page footer. Nothing in a report is smaller than this."
+    },
+    "r-kpi": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "19pt",
+        "fontWeight": 700,
+        "lineHeight": "1.1"
+      },
+      "$description": "Reports and proposals (A4). The figure in a Stat report tile."
+    },
+    "r-kpi-label": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontSize": "7.6pt",
+        "fontWeight": 700,
+        "lineHeight": "1.2"
+      },
+      "$description": "Reports and proposals (A4). The uppercase label above a Stat report tile figure."
     }
   }
 }
