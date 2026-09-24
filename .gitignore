@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__/
+*.pyc
+out/
+/tmp/
+# client decks and configs never belong in this public repository
+config.*.json
+!config.example.json

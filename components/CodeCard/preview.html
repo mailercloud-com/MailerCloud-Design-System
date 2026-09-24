@@ -1,0 +1,26 @@
+<!-- @dsCard group="Data" height=420 subtitle="Navy API card with request and response" -->
+<link rel="stylesheet" href="../../dist/tokens.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+<div style="background:var(--bg-pink); padding:24px; font-family:var(--font-mono)">
+  <div style="background:var(--navy); border-radius:var(--radius-card); box-shadow:var(--shadow-card-dark); padding:24px 28px; color:var(--code-text)">
+    <div style="display:flex; align-items:center; gap:12px; font-size:13px">
+      <span style="background:var(--positive-bg); color:var(--positive-ink); border-radius:8px; padding:3px 12px; font-weight:700">POST</span>
+      <span>email-api.mailercloud.com/email</span>
+    </div>
+    <hr style="border:0; border-top:2px solid var(--navy-line); margin:14px 0">
+    <pre style="margin:0; font-size:13px; line-height:1.4; font-family:var(--font-mono)">{
+  <span style="color:var(--code-key)">"email"</span>: {
+    <span style="color:var(--code-key)">"from"</span>: <span style="color:var(--code-string)">"support@yourbrand.com"</span>,
+    <span style="color:var(--code-key)">"subject"</span>: <span style="color:var(--code-string)">"Re: Your support request"</span>
+  },
+  <span style="color:var(--code-key)">"metadata"</span>: {
+    <span style="color:var(--code-key)">"campaignType"</span>: <span style="color:var(--code-string)">"TRANSACTIONAL"</span>
+  }
+}</pre>
+    <hr style="border:0; border-top:2px solid var(--navy-line); margin:14px 0">
+    <div style="display:flex; align-items:center; gap:12px; font-size:13px">
+      <span style="background:var(--positive-bg); color:var(--positive-ink); border-radius:8px; padding:3px 12px; font-weight:700">200 OK</span>
+      <span style="font-family:var(--font-sans); color:var(--surface-card); font-size:14px">Email accepted</span>
+    </div>
+  </div>
+</div>

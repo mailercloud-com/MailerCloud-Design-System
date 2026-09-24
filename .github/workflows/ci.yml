@@ -1,0 +1,19 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generated files are up to date
+        run: python scripts/build_tokens.py --check
+      - name: Contrast pairs pass
+        run: python scripts/check_contrast.py
+      - name: Deck kit builds the example deck and passes its lint
+        run: python tools/deck-kit/build_deck.py tools/deck-kit/config.example.json /tmp/example-deck --logo /_blob/example

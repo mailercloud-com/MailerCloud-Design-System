@@ -1,0 +1,428 @@
+{
+  "$description": "MailerCloud Design System 3.0",
+  "color": {
+    "ink": {
+      "$type": "color",
+      "$value": "#020a13",
+      "$description": "Text on every light and pastel surface (brand guide secondary #020A13; 8:1 or better on all bg-* colours). Headings, body, table text."
+    },
+    "ink-muted": {
+      "$type": "color",
+      "$value": "#22364c",
+      "$description": "Secondary text, footers, captions, source lines (brand guide secondary #22364C; 6:1 or better on bg-sky and lighter)."
+    },
+    "slate": {
+      "$type": "color",
+      "$value": "#7d8e9f",
+      "$description": "Brand guide secondary #7D8E9F. Rules, icons, disabled states and chart neutrals. Not for text: 3.3:1 on surface-card."
+    },
+    "navy": {
+      "$type": "color",
+      "$value": "#091929",
+      "$description": "Dark cards, the highlighted MailerCloud node in diagrams, emphasis pills, bar fills and report table headers (brand guide secondary #091929). Text on it is surface-card or white."
+    },
+    "navy-line": {
+      "$type": "color",
+      "$value": "#2b3a63",
+      "$description": "Divider rules inside navy cards."
+    },
+    "brand-blue": {
+      "$type": "color",
+      "$value": "#046dff",
+      "$description": "Primary brand colour #046DFF (brand guide). The logo cloud, the header rule, links, the one highlighted chart bar and the new-route arrows. Contrast is 4.4:1 on white and surface-card (just under AA for small text), 3.5:1 on bg-lime and 2.1:1 on bg-sky: use it for large text, graphics and the logo, underline any link, and use navy on bg-sky."
+    },
+    "surface-card": {
+      "$type": "color",
+      "$value": "#fdfdf8",
+      "$description": "Cards, diagram nodes and pinned panels on top of pastel grounds. Ink text."
+    },
+    "surface-tint": {
+      "$type": "color",
+      "$value": "#eaf2ff",
+      "$description": "Summary boxes at the top of a report page. Ink text."
+    },
+    "surface-zebra": {
+      "$type": "color",
+      "$value": "#f5f7fa",
+      "$description": "Alternate table rows and KPI tiles on white report pages. Ink text."
+    },
+    "bg-sky": {
+      "$type": "color",
+      "$value": "#5bbdee",
+      "$description": "Cover, closing and data-flow slide grounds. The brand's lead background. Marketing-collateral colour (company overview PDF); not listed in the brand guide."
+    },
+    "bg-lime": {
+      "$type": "color",
+      "$value": "#dfec54",
+      "$description": "Slide ground for context and decision slides; also pill fill on white cards. Marketing-collateral colour (company overview PDF); not listed in the brand guide."
+    },
+    "bg-mint": {
+      "$type": "color",
+      "$value": "#82d5c5",
+      "$description": "Slide ground for comparison and capability slides. Marketing-collateral colour (company overview PDF); not listed in the brand guide."
+    },
+    "bg-green": {
+      "$type": "color",
+      "$value": "#8cd480",
+      "$description": "Slide ground for capacity and numbers slides; the 'no change' pill. Marketing-collateral colour (company overview PDF); not listed in the brand guide."
+    },
+    "bg-pink": {
+      "$type": "color",
+      "$value": "#fbd3eb",
+      "$description": "Slide ground for options and proof slides. Marketing-collateral colour (company overview PDF); not listed in the brand guide."
+    },
+    "bg-cream": {
+      "$type": "color",
+      "$value": "#fbf9ae",
+      "$description": "Slide ground for diagrams and charts that need a quiet field. Marketing-collateral colour (company overview PDF); not listed in the brand guide."
+    },
+    "bg-yellow": {
+      "$type": "color",
+      "$value": "#f2f02b",
+      "$description": "Rare high-energy ground from the company overview (Drag and drop builder page). Use for at most one slide in a deck. Marketing-collateral colour (company overview PDF); not listed in the brand guide."
+    },
+    "bg-paper": {
+      "$type": "color",
+      "$value": "#f8fdf7",
+      "$description": "Near-white ground for text-heavy slides (security, policy) and the page ground for reports."
+    },
+    "line": {
+      "$type": "color",
+      "$value": "#d9dfe8",
+      "$description": "Table rules, footer rules and card outlines on white pages."
+    },
+    "attention-bg": {
+      "$type": "color",
+      "$value": "#fff4d6",
+      "$description": "Rows and callouts that need a closer look. Always paired with a text label such as 'Worth a closer look'."
+    },
+    "attention-line": {
+      "$type": "color",
+      "$value": "#c98a00",
+      "$description": "Rule beside an attention callout."
+    },
+    "attention-ink": {
+      "$type": "color",
+      "$value": "#7a5200",
+      "$description": "Text on attention-bg (6:1)."
+    },
+    "positive-bg": {
+      "$type": "color",
+      "$value": "#b7f0cf",
+      "$description": "Confirmation pills and the 'unchanged' row in a table."
+    },
+    "positive-ink": {
+      "$type": "color",
+      "$value": "#0c4a2e",
+      "$description": "Text on positive-bg."
+    },
+    "success": {
+      "$type": "color",
+      "$value": "#16db93",
+      "$description": "Brand guide behaviour colour for success. Status dots, confirmation icons, positive deltas. Text on it is ink."
+    },
+    "error": {
+      "$type": "color",
+      "$value": "#e63946",
+      "$description": "Brand guide behaviour colour for error. Failures and blocking states. Text on it is ink (4.8:1); white is only 4.2:1, so use white on it for large text only."
+    },
+    "warning": {
+      "$type": "color",
+      "$value": "#ffc300",
+      "$description": "Brand guide behaviour colour for warning. Attention markers and icons. Text on it is ink. attention-bg is its tint."
+    },
+    "info": {
+      "$type": "color",
+      "$value": "#b6d7ff",
+      "$description": "Brand guide behaviour colour for information. Info banners and highlights. Text on it is ink."
+    },
+    "chart-grey": {
+      "$type": "color",
+      "$value": "{color.slate}",
+      "$description": "The comparison or previous-period bar in a chart (alias of slate)."
+    },
+    "chart-light": {
+      "$type": "color",
+      "$value": "#c9d3e3",
+      "$description": "The residual 'all other' segment in a stacked bar."
+    },
+    "code-key": {
+      "$type": "color",
+      "$value": "#8fb4ff",
+      "$description": "JSON keys on navy code cards."
+    },
+    "code-string": {
+      "$type": "color",
+      "$value": "#8be3a0",
+      "$description": "JSON string values on navy code cards."
+    },
+    "code-text": {
+      "$type": "color",
+      "$value": "#cbd5e1",
+      "$description": "Punctuation and plain text on navy code cards."
+    },
+    "text-primary": {
+      "$type": "color",
+      "$value": "{color.ink}",
+      "$description": "Semantic. Default text colour. Alias of ink."
+    },
+    "text-secondary": {
+      "$type": "color",
+      "$value": "{color.ink-muted}",
+      "$description": "Semantic. Captions, footers, source lines. Alias of ink-muted."
+    },
+    "text-inverse": {
+      "$type": "color",
+      "$value": "{color.surface-card}",
+      "$description": "Semantic. Text on navy and other inverse surfaces."
+    },
+    "text-link": {
+      "$type": "color",
+      "$value": "{color.brand-blue}",
+      "$description": "Semantic. Links. Always underlined because brand-blue is 4.4:1 on white."
+    },
+    "surface-page": {
+      "$type": "color",
+      "$value": "{color.bg-paper}",
+      "$description": "Semantic. Page ground for reports and text-heavy slides."
+    },
+    "surface-raised": {
+      "$type": "color",
+      "$value": "{color.surface-card}",
+      "$description": "Semantic. Cards and diagram nodes above a page or pastel ground."
+    },
+    "surface-inverse": {
+      "$type": "color",
+      "$value": "{color.navy}",
+      "$description": "Semantic. Dark cards, the MailerCloud node and code cards."
+    },
+    "border-subtle": {
+      "$type": "color",
+      "$value": "{color.line}",
+      "$description": "Semantic. Table rules and footer hairlines."
+    },
+    "border-strong": {
+      "$type": "color",
+      "$value": "{color.ink}",
+      "$description": "Semantic. Diagram node outlines and the connector lines of existing paths."
+    },
+    "action-primary": {
+      "$type": "color",
+      "$value": "{color.brand-blue}",
+      "$description": "Semantic. The main call-to-action colour on white grounds."
+    },
+    "focus-ring": {
+      "$type": "color",
+      "$value": "{color.brand-blue}",
+      "$description": "Semantic. Keyboard focus outline on interactive artefacts, 3px, offset 2px."
+    },
+    "status-success": {
+      "$type": "color",
+      "$value": "{color.success}",
+      "$description": "Semantic. Success indicators. Pair with the word."
+    },
+    "status-warning": {
+      "$type": "color",
+      "$value": "{color.warning}",
+      "$description": "Semantic. Warning indicators. Pair with the word."
+    },
+    "status-error": {
+      "$type": "color",
+      "$value": "{color.error}",
+      "$description": "Semantic. Error indicators. Pair with the word."
+    },
+    "status-info": {
+      "$type": "color",
+      "$value": "{color.info}",
+      "$description": "Semantic. Information indicators. Pair with the word."
+    },
+    "card-bg": {
+      "$type": "color",
+      "$value": "{color.surface-raised}",
+      "$description": "Component. Fill of the Card."
+    },
+    "card-inverse-bg": {
+      "$type": "color",
+      "$value": "{color.surface-inverse}",
+      "$description": "Component. Fill of the dark Card and CodeCard."
+    },
+    "table-header-bg": {
+      "$type": "color",
+      "$value": "{color.navy}",
+      "$description": "Component. Header row of the DataTable."
+    },
+    "table-row-alt-bg": {
+      "$type": "color",
+      "$value": "{color.surface-zebra}",
+      "$description": "Component. Alternate DataTable row on white pages."
+    },
+    "node-line": {
+      "$type": "color",
+      "$value": "{color.border-strong}",
+      "$description": "Component. Outline of a DiagramNode."
+    },
+    "node-inverse-bg": {
+      "$type": "color",
+      "$value": "{color.surface-inverse}",
+      "$description": "Component. Fill of the MailerCloud DiagramNode."
+    },
+    "chart-1": {
+      "$type": "color",
+      "$value": "{color.navy}",
+      "$description": "Data visualisation, series 1 and the default bar."
+    },
+    "chart-2": {
+      "$type": "color",
+      "$value": "{color.brand-blue}",
+      "$description": "Data visualisation, series 2 and the highlighted bar."
+    },
+    "chart-3": {
+      "$type": "color",
+      "$value": "{color.slate}",
+      "$description": "Data visualisation, series 3 and comparison values."
+    },
+    "chart-4": {
+      "$type": "color",
+      "$value": "{color.warning}",
+      "$description": "Data visualisation, series 4. Label directly; it is close to chart-5 in lightness."
+    },
+    "chart-5": {
+      "$type": "color",
+      "$value": "{color.success}",
+      "$description": "Data visualisation, series 5. Label directly."
+    }
+  },
+  "spacing": {
+    "space-1": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Gap between a pill and its neighbour; gap between stacked cards' small elements."
+    },
+    "space-2": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Gap inside a card between heading and body; gap between title and subtitle."
+    },
+    "space-3": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$description": "Gap between stacked cards."
+    },
+    "space-card-tight": {
+      "$type": "dimension",
+      "$value": "28px",
+      "$description": "Card padding when five cards sit across a slide (rollout plan)."
+    },
+    "space-4": {
+      "$type": "dimension",
+      "$value": "32px",
+      "$description": "Gap between side-by-side cards; card padding on dense slides."
+    },
+    "space-5": {
+      "$type": "dimension",
+      "$value": "40px",
+      "$description": "Gap between a slide title and its content; card padding on sparse slides."
+    },
+    "space-margin": {
+      "$type": "dimension",
+      "$value": "128px",
+      "$description": "Slide margin on all four sides (bottom 160px when a footer row is present)."
+    },
+    "space-logo-top": {
+      "$type": "dimension",
+      "$value": "56px",
+      "$description": "Distance from the top edge of a slide to the logo. The logo is 45px tall, so it ends at 101px and leaves 51px before the eyebrow at 152px."
+    },
+    "space-footer": {
+      "$type": "dimension",
+      "$value": "64px",
+      "$description": "Distance from the bottom edge of a slide to the footer row (url left, page number right, 24px)."
+    },
+    "space-title-top": {
+      "$type": "dimension",
+      "$value": "152px",
+      "$description": "Distance from the top edge of a content slide to the eyebrow line; the title follows 8px below."
+    },
+    "space-content-bottom": {
+      "$type": "dimension",
+      "$value": "200px",
+      "$description": "Bottom padding of a content slide: content ends at y 880, leaving the footer band clear."
+    }
+  },
+  "radius": {
+    "radius-tile": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$description": "Chart bar tops."
+    },
+    "radius-card": {
+      "$type": "dimension",
+      "$value": "28px",
+      "$description": "Cards, diagram nodes, code cards."
+    },
+    "radius-pill": {
+      "$type": "dimension",
+      "$value": "40px",
+      "$description": "Pills and tags (fully rounded)."
+    },
+    "radius-round": {
+      "$type": "dimension",
+      "$value": "50%",
+      "$description": "Discs, icon circles and the decorative circles on covers."
+    }
+  },
+  "shadow": {
+    "shadow-card": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(2,10,19,0.18)",
+        "offsetX": "10px",
+        "offsetY": "10px",
+        "blur": "0px",
+        "spread": "0px"
+      },
+      "$description": "White cards on pastel grounds. A hard offset shadow with no blur."
+    },
+    "shadow-card-dark": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(2,10,19,0.28)",
+        "offsetX": "10px",
+        "offsetY": "10px",
+        "blur": "0px",
+        "spread": "0px"
+      },
+      "$description": "Navy cards on pastel grounds."
+    },
+    "shadow-small": {
+      "$type": "shadow",
+      "$value": {
+        "color": "rgba(2,10,19,0.22)",
+        "offsetX": "8px",
+        "offsetY": "8px",
+        "blur": "0px",
+        "spread": "0px"
+      },
+      "$description": "Diagram nodes and banners."
+    }
+  },
+  "font": {
+    "sans": {
+      "$type": "fontFamily",
+      "$value": [
+        "Neutrif Pro",
+        "Poppins",
+        "Arial",
+        "sans-serif"
+      ]
+    },
+    "mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "JetBrains Mono",
+        "Courier New",
+        "monospace"
+      ]
+    }
+  }
+}

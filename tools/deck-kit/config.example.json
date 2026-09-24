@@ -1,0 +1,144 @@
+{
+  "client": "Example Client",
+  "client_domain": "example.com",
+  "deck_title": "Customer Support Email Solution",
+  "meeting": "Demo call",
+  "date": "1 January 2027",
+  "use_case_short": "support replies",
+  "cover_title": [
+    "Reliable support",
+    "email at 20,000 a day"
+  ],
+  "volume": 20000,
+  "window_hours": 8,
+  "provider": "Microsoft 365",
+  "inbound_system": "Microsoft 365",
+  "inbound_note": "One shared mailbox, MX unchanged",
+  "workspace": "Support workspace",
+  "workspace_sub": "Helpdesk or support app",
+  "workspace_sub_short": "Helpdesk / support app",
+  "provider_limits": {
+    "recipients_per_day": 10000,
+    "messages_per_min": 30,
+    "source": "Microsoft Exchange Online sending limits and Microsoft guidance on bulk email."
+  },
+  "outcome_text": "Full volume within the first week, a status for every reply, and no change for customers or agents.",
+  "ask": "agree the integration path and sending domain today.",
+  "ramp": [
+    5000,
+    10000,
+    15000,
+    20000
+  ],
+  "ramp_title": "20K a day within the first week",
+  "rollout_title": "Full volume within the first week",
+  "rollout_banner": "Cut-over: outbound bulk sending from Microsoft 365 is switched off once the ramp completes.",
+  "rollout": [
+    {
+      "when": "Days 1–2",
+      "title": "Domain and DNS",
+      "text": "Publish SPF, DKIM, DMARC and bounce records."
+    },
+    {
+      "when": "Days 2–3",
+      "title": "Connect and test",
+      "text": "Set up SMTP or the Email API; test in a sandbox."
+    },
+    {
+      "when": "Days 3–7",
+      "title": "Ramp to 20K",
+      "text": "Ramp 5K, 10K, 15K, then 20K a day; check daily."
+    },
+    {
+      "when": "Week 2",
+      "title": "Full volume",
+      "text": "Hold 20K a day and confirm placement is steady."
+    },
+    {
+      "when": "Ongoing",
+      "title": "Review and tighten",
+      "text": "Weekly deliverability review, then tighten DMARC."
+    }
+  ],
+  "risks": [
+    [
+      "DNS records are not live at go-live",
+      "Traffic moves only after SPF, DKIM and DMARC pass testing."
+    ],
+    [
+      "The helpdesk cannot use custom SMTP",
+      "Use the Email API instead: one REST call per reply."
+    ],
+    [
+      "Old addresses cause early bounces",
+      "Bounces are suppressed; start with engaged contacts."
+    ],
+    [
+      "A ramp step triggers deferrals",
+      "Hold the step; review Gmail and Outlook placement first."
+    ],
+    [
+      "The SPF record exceeds 10 lookups",
+      "Check it first; use a dedicated sending subdomain if needed."
+    ]
+  ],
+  "proof_stats": [
+    [
+      "6 Billion+",
+      "emails delivered every month"
+    ],
+    [
+      "98%",
+      "client retention"
+    ],
+    [
+      "35,000+",
+      "businesses worldwide"
+    ]
+  ],
+  "cases": [
+    [
+      "Case study tag",
+      "[Customer name]",
+      "[One or two sentences from an approved MailerCloud case study.]"
+    ],
+    [
+      "Case study tag",
+      "[Customer name]",
+      "[One or two sentences from an approved MailerCloud case study.]"
+    ]
+  ],
+  "decisions": [
+    "Helpdesk tool or custom app?",
+    "Main domain or a dedicated subdomain?",
+    "Shared pool or dedicated IP?",
+    "Peak hourly volume and spikes",
+    "Who manages DNS, and how fast?"
+  ],
+  "next_steps": [
+    "Agree integration path and sending domain",
+    "MailerCloud prepares domain, SMTP and API access",
+    "Publish DNS records and test",
+    "Start the ramp: 5K, 10K, 15K, then 20K"
+  ],
+  "situation_cards": [
+    {
+      "heading": "Today",
+      "big": "20,000",
+      "label": "support replies a day",
+      "text": "Each one answers a customer's own email."
+    },
+    {
+      "heading": "The constraint",
+      "big": "10,000",
+      "label": "recipients a day per mailbox",
+      "text": "Each mailbox is also capped at 30 messages a minute. Microsoft says Exchange Online is not built for bulk email."
+    },
+    {
+      "heading": "The goal",
+      "big": null,
+      "label": "",
+      "text": "A route built for volume, with Microsoft 365 kept for inbound mail."
+    }
+  ]
+}
