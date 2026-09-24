@@ -64,7 +64,7 @@ Use these figures as published on mailercloud.com (homepage, checked 24 Sep 2026
 | --- | --- |
 | Emails delivered every month | 6 Billion+ |
 | Monthly campaigns | 50K+ |
-| Client retention | 98% (the overview PDF says 95%) |
+| Client retention | 98% — use this one; the older overview PDF says 95% |
 | Opens | 900 Million+ |
 | Businesses | 35,000+ |
 | Security and compliance | ISO/IEC 27001:2022, GDPR compliant, VAPT certified |
@@ -78,7 +78,7 @@ Case studies (Turtle, RedBus) come from the company overview and keep their own 
 
 | Document | Format | Ground | Type | Chrome |
 | --- | --- | --- | --- | --- |
-| Deck | 1920 × 1080 slides | One `bg-*` pastel per slide; alternate, never the same ground twice in a row; `bg-paper` for text-heavy slides | Slide scale below | Logo top-left at 128px from the left and `space-logo-top` (56px) from the top, 220 × 45px; an eyebrow line ("Client · Section") above every title; two-part footer, 24px `ink-muted`, `space-footer` (64px) from the bottom: `www.mailercloud.com` left, `05 / 18` right |
+| Deck | 1920 × 1080 slides | One `bg-*` pastel per slide; alternate, never the same ground twice in a row; `bg-paper` for text-heavy slides | Slide scale below | Logo top-left at 128px from the left and `space-logo-top` (56px) from the top, 220 × 45px; an eyebrow line ("Client · Section") above every title; two-part footer, `t-label` in `text-secondary`, `space-footer` (64px) from the bottom: `www.mailercloud.com` left, `05 / 18` right |
 | Report | A4 portrait | White page, `bg-paper` allowed | Report scale below | Header: logo left, title and date right, 1.6pt `brand-blue` rule; footer: hairline in `line`, "MailerCloud \| www.mailercloud.com \| Confidential: prepared for [client]", "Page x of y" |
 | Proposal | A4 portrait | White page | Report scale | Same header and footer as a report; cover with the client name in the largest size |
 
@@ -96,12 +96,12 @@ The official face is Neutrif Pro (Regular, Semi Bold, Bold). Poppins stands in e
 
 Slide scale (px, 1920 × 1080): `t-display` 88, `t-title` 64, `t-heading` 40, `t-lead` 32, `t-body` 26, `t-label` 24 (the floor). Emphasise with weight or colour, not a new size.
 
-Report scale (pt, A4): document title 26 bold; section heading 14 bold; sub-heading 10.5 bold; body 9.5 on 13.5 leading; table text 8.8; footnotes 8.3; KPI figure 19 bold with a 7.6 bold uppercase label.
+Report scale (pt, A4), generated as the `r-*` classes in `dist/tokens.css`: `r-title` 26 bold; `r-heading` 14 bold; `r-subheading` 10.5 bold; `r-body` 10 on 1.35 leading; `r-table` 8.8; `r-footnote` 8.3 (the floor); `r-kpi` 19 bold with an `r-kpi-label` 7.6 bold uppercase label.
 
 ### Shape, cards and shadows
 
-- Cards: `surface-card`, `radius-card`, `shadow-card` on pastel grounds; padding `space-4` (dense) or `space-5` (sparse); `space-4` between side-by-side cards.
-- Pills: `radius-pill`, `t-label` weight 600, padding 6–8px by 18–22px; fill `bg-lime`, `bg-sky`, `bg-green` or `navy` (with `bg-lime` text).
+- Cards: `surface-card`, `radius-card`, `shadow-card` on pastel grounds; padding `space-4` (dense) or `space-5` (sparse); `space-4` between side-by-side cards. Radii come from the scale only: 16, 28, 40 or 50%.
+- Pills: `radius-pill`, `t-label` weight 600, padding `space-pill-y` by `space-pill-x` (8px by 20px); fill `bg-lime`, `bg-sky`, `bg-green` or `navy` (with `bg-lime` text).
 - Decorative circles (`radius-round`) in `bg-lime`, `bg-green` and `surface-card` sit off the text column on covers, as on the company overview.
 - One deliberate hard shadow per object; no blur, no gradients, no glows.
 
@@ -117,16 +117,16 @@ Reviewed on a built client deck three times on 24 Sep 2026. The second pass fill
 | Logo | 128px from the left, `space-logo-top` (56px) from the top, 220 × 45px |
 | Title block | Starts `space-title-top` (152px) from the top: eyebrow (24px, uppercase, 2px tracking, `text-secondary`), 8px gap, title (64px). A 32px subtitle only where it earns its place |
 | Content area | From 32px under the title block down to y 880 (`space-content-bottom` 200px). The footer band below stays clear |
-| Between blocks | 48px between columns; 24–32px between cards; 56px between a column group and a banner |
+| Between blocks | `space-6` (48px) between columns; `space-3`–`space-4` between cards; `space-7` (56px) between a column group and a banner |
 | Card padding | `space-card-tight` (28px) for five across; `space-4` (32px) for grids; `space-5` (40px) for two-up cards |
-| Inside a card | 12–20px between pill, heading, chips and text |
+| Inside a card | `space-2` (16px) between pill, heading, chips and text |
 | Footer | `space-footer` (64px) from the bottom; one 24px row, url left and `05 / 18` right |
 
 **Air over ink**
 
 - The content group is centred vertically in the content area. It should occupy at most about 65% of it, with at least 60px above and below.
 - One idea per slide: at most 3 columns, 5 list rows or 6 tiles, and about 60 words of body copy.
-- Body text 32px where it fits; 26px only in tiles and captions. Write copy to fit one line per list row.
+- Body text `t-lead` (32px) where it fits; `t-body` (26px) in tiles, captions and dense open rows. Write copy to fit one line per list row. Nothing between the two: 28px is not on the scale.
 - Prefer open layouts to boxes: columns with a 4px top rule, rows with hairline rules, a soft highlighted row. Boxed tables and stacks of cards are the exception.
 - One focal element per slide: at most one dark card or banner.
 - Do not stretch cards or rows to reach the footer. If a slide looks empty, cut words or enlarge type within the scale; do not add boxes.

@@ -1,10 +1,11 @@
 {
-  "note": "Every pair here must meet its minimum ratio. text = 4.5, large = 3 (24px bold or 32px and up), graphic = 3. Add a pair when a new foreground/background combination is introduced.",
+  "note": "Every pair here must meet its minimum ratio. text = 4.5, large = 3 (24px bold or 32px and up), graphic = 3. Add a pair when a new foreground/background combination is introduced. Every bg-* ground and every text token that sits on it must appear here: scripts/check_contrast.py --coverage fails when one does not.",
   "pairs": [
-    ["ink","bg-sky",4.5],["ink","bg-lime",4.5],["ink","bg-mint",4.5],["ink","bg-green",4.5],["ink","bg-pink",4.5],["ink","bg-cream",4.5],["ink","bg-paper",4.5],
+    ["ink","bg-sky",4.5],["ink","bg-lime",4.5],["ink","bg-mint",4.5],["ink","bg-green",4.5],["ink","bg-pink",4.5],["ink","bg-cream",4.5],["ink","bg-yellow",4.5],["ink","bg-paper",4.5],
     ["ink","surface-card",4.5],["ink","surface-zebra",4.5],["ink","surface-tint",4.5],["ink","info",4.5],["ink","warning",4.5],["ink","success",4.5],["ink","error",4.5],
-    ["ink-muted","bg-sky",4.5],["ink-muted","bg-lime",4.5],["ink-muted","bg-mint",4.5],["ink-muted","bg-green",4.5],["ink-muted","bg-pink",4.5],["ink-muted","bg-cream",4.5],["ink-muted","bg-paper",4.5],["ink-muted","surface-card",4.5],
-    ["text-inverse","navy",4.5],["bg-lime","navy",4.5],["code-key","navy",4.5],["code-string","navy",4.5],["code-text","navy",4.5],
+    ["ink-muted","bg-sky",4.5],["ink-muted","bg-lime",4.5],["ink-muted","bg-mint",4.5],["ink-muted","bg-green",4.5],["ink-muted","bg-pink",4.5],["ink-muted","bg-cream",4.5],["ink-muted","bg-yellow",4.5],["ink-muted","bg-paper",4.5],["ink-muted","surface-card",4.5],
+    ["ink-muted","surface-zebra",4.5],["ink-muted","surface-tint",4.5],["attention-ink","surface-zebra",4.5],
+    ["text-inverse","navy",4.5],["text-inverse-muted","navy",4.5],["bg-lime","navy",4.5],["code-key","navy",4.5],["code-string","navy",4.5],["code-text","navy",4.5],
     ["attention-ink","attention-bg",4.5],["positive-ink","positive-bg",4.5],
     ["brand-blue","surface-card",3],["brand-blue","bg-paper",3],["brand-blue","bg-cream",3],["brand-blue","bg-lime",3],
     ["navy","bg-sky",3],["slate","surface-card",3],["white-on-error-large","error",3]

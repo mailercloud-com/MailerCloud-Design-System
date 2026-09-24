@@ -2,7 +2,7 @@
 
 The shared design system for every MailerCloud document and interface we build for customers: client decks, reports, proposals and one-pagers. Colour-first, one message per page, official brand palette and type.
 
-**Version 3.0.0** · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
+**Version 3.1.0** · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
 
 ## Start here
 
@@ -20,8 +20,8 @@ The shared design system for every MailerCloud document and interface we build f
 
 `tokens/tokens.json` is the single source of truth. Everything else is generated from it:
 
-- `dist/tokens.css`: CSS custom properties (`var(--brand-blue)`, `var(--space-4)`, `var(--radius-card)`) and the slide type classes (`.t-title`, `.t-body`).
-- `dist/tokens.dtcg.json`: the same tokens in the W3C Design Tokens format, for Style Dictionary, Tokens Studio and other tools.
+- `dist/tokens.css`: CSS custom properties (`var(--brand-blue)`, `var(--space-4)`, `var(--radius-card)`), the slide type classes (`.t-title`, `.t-body`) and the report type classes (`.r-body`, `.r-kpi`).
+- `dist/tokens.dtcg.json`: the same tokens in the W3C Design Tokens format — colour, spacing, radius, shadow, font families and the type scale as composite `typography` tokens — for Style Dictionary, Tokens Studio and other tools.
 
 ```html
 <link rel="stylesheet" href="dist/tokens.css">
@@ -33,11 +33,13 @@ The shared design system for every MailerCloud document and interface we build f
 After editing `tokens/tokens.json`, regenerate and check:
 
 ```bash
-python scripts/build_tokens.py     # rewrites dist/ and index.html
-python scripts/check_contrast.py   # every approved colour pair must pass
+python scripts/build_tokens.py              # rewrites dist/ and index.html
+python scripts/check_contrast.py            # every approved colour pair must pass
+python scripts/check_contrast.py --coverage # every ground has a pair
+python scripts/check_usage.py               # consumers reference tokens, never restate them
 ```
 
-CI runs both, plus the deck kit, on every push and pull request.
+CI runs all four, plus the deck kit and its lint, on every push and pull request. Nothing that builds a document — the component previews or the deck kit — may write a colour, type size, radius or spacing step as a literal; `check_usage.py` fails the build if one does.
 
 ## Repository layout
 
@@ -48,7 +50,7 @@ docs/                   brand book, foundations, patterns, governance, component
 components/             live HTML previews for each component and the cover
 assets/logos/           the logo and its usage rules
 tools/deck-kit/         builds the 18-slide client solution deck from a JSON config
-scripts/                token build, contrast check, approved colour pairs
+scripts/                token build, contrast check, usage check, approved colour pairs
 index.html              generated overview of the whole system
 ```
 

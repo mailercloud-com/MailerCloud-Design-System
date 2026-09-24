@@ -1,31 +1,54 @@
-<!-- @dsCard height=320 -->
+<!-- @dsCard group="Surfaces" height=300 subtitle="Cover composition: discs, slabs and a pill, off the text column" -->
+<meta charset="utf-8">
 <link rel="stylesheet" href="../../dist/tokens.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
-<div style="position:relative; width:960px; height:320px; background:var(--bg-paper); overflow:hidden; font-family:var(--font-sans)">
-<svg width="960" height="320" viewBox="0 0 960 320" style="position:absolute; left:0; top:0" aria-hidden="true">
+<style>
+  /* Previews are drawn at slide scale (1664px content width, the sizes in the
+     type scale) and shrunk to fit the page, so what you read here is the real
+     component, not a miniature drawn with smaller numbers. */
+  body { margin: 0; }
+  .ds-scale { zoom: .5; font-family: var(--font-sans); color: var(--text-primary); }
+  .ds-ground { width: 1664px; padding: var(--space-5); }
+  .ds-row { display: flex; gap: var(--space-4); }
+  .ds-col { display: flex; flex-direction: column; gap: var(--space-2); }
+  .ds-card { background: var(--card-bg); border-radius: var(--radius-card);
+             box-shadow: var(--shadow-card); padding: var(--space-5); }
+  .ds-card-dark { background: var(--card-inverse-bg); color: var(--text-inverse);
+                  border-radius: var(--radius-card); box-shadow: var(--shadow-card-dark);
+                  padding: var(--space-5); }
+  .ds-pill { border-radius: var(--radius-pill);
+             padding: var(--space-pill-y) var(--space-pill-x); }
+  p, h1, h2, h3 { margin: 0; }
+  .ds-cover { position: relative; width: 1664px; height: 560px; overflow: hidden; }
+  .ds-cover-text { position: absolute; left: var(--space-5); bottom: var(--space-5); width: 700px; }
+</style>
+<div class="ds-scale"><div class="ds-cover" style="background:var(--surface-page)">
+<svg width="1664" height="560" viewBox="0 0 1664 560" style="position:absolute; left:0; top:0" aria-hidden="true">
 <!--
-blocks: bg-sky disc 272 wide (34 x space-1), bg-lime slab 144 x 152 (radius-card), navy pill 144 x 72 (radius-pill, rx = half the short side), bg-mint and bg-pink discs 48 wide.
-arrangement: staggered; one large disc left of a stacked lime and navy column, two small discs beneath it, 16px (space-2) between the column blocks and 8px (space-1) to the discs.
-pattern: soft, friendly, large radii -> discs; a 3 x 3 grid of 12px discs at 24px pitch (space-3) cut out of the sky disc in bg-paper.
-steps and radii: space-1 8, space-2 16, space-3 24, space-4 32 (text inset); radius-card 28, radius-pill, radius-round.
+blocks: bg-sky disc 476 wide, bg-lime slab 252 x 266 (radius-card), navy pill 252 x 126 (radius-pill,
+clamped by SVG to half the short side), bg-mint and bg-pink discs 84 wide.
+arrangement: staggered; one large disc left of a stacked lime and navy column, two small discs beneath,
+space-2 between the column blocks and space-1 to the discs.
+pattern: a 3 x 3 grid of 21px discs at space-5 pitch cut out of the sky disc in surface-page.
 -->
 <style>
-.sky{fill:var(--bg-sky)} .lime{fill:var(--bg-lime)} .navy{fill:var(--navy)} .mint{fill:var(--bg-mint)} .pink{fill:var(--bg-pink)} .cut{fill:var(--bg-paper)}
-.card{rx:var(--radius-card)} .pill{rx:36px}
+.sky{fill:var(--bg-sky)} .lime{fill:var(--bg-lime)} .navy{fill:var(--surface-inverse)}
+.mint{fill:var(--bg-mint)} .pink{fill:var(--bg-pink)} .cut{fill:var(--surface-page)}
+.card{rx:var(--radius-card)} .pill{rx:var(--radius-pill)}
 </style>
-<circle class="sky" cx="640" cy="168" r="136"/>
-<rect class="lime card" x="800" y="16" width="144" height="152"/>
-<rect class="navy pill" x="800" y="184" width="144" height="72"/>
-<circle class="mint" cx="836" cy="288" r="24"/>
-<circle class="pink" cx="908" cy="288" r="24"/>
+<circle class="sky" cx="1120" cy="294" r="238"/>
+<rect class="lime card" x="1400" y="28" width="252" height="266"/>
+<rect class="navy pill" x="1400" y="322" width="252" height="126"/>
+<circle class="mint" cx="1463" cy="504" r="42"/>
+<circle class="pink" cx="1589" cy="504" r="42"/>
 <g class="cut">
-<circle class="cut" cx="616" cy="144" r="6"/><circle class="cut" cx="640" cy="144" r="6"/><circle class="cut" cx="664" cy="144" r="6"/>
-<circle class="cut" cx="616" cy="168" r="6"/><circle class="cut" cx="640" cy="168" r="6"/><circle class="cut" cx="664" cy="168" r="6"/>
-<circle class="cut" cx="616" cy="192" r="6"/><circle class="cut" cx="640" cy="192" r="6"/><circle class="cut" cx="664" cy="192" r="6"/>
+<circle cx="1078" cy="252" r="11"/><circle cx="1120" cy="252" r="11"/><circle cx="1162" cy="252" r="11"/>
+<circle cx="1078" cy="294" r="11"/><circle cx="1120" cy="294" r="11"/><circle cx="1162" cy="294" r="11"/>
+<circle cx="1078" cy="336" r="11"/><circle cx="1120" cy="336" r="11"/><circle cx="1162" cy="336" r="11"/>
 </g>
 </svg>
-<div style="position:absolute; left:32px; bottom:32px; width:400px">
-<h1 style="margin:0; font-size:64px; line-height:0.95; font-weight:700; color:var(--ink)">MailerCloud</h1>
-<p style="margin:16px 0 0; font-size:14px; line-height:1.4; color:var(--ink-muted)">Colour-first documents, one message each.</p>
+<div class="ds-cover-text">
+<h1 class="t-display">MailerCloud</h1>
+<p class="t-lead" style="margin-top:var(--space-2); color:var(--text-secondary)">Colour-first documents, one message each.</p>
 </div>
-</div>
+</div></div>

@@ -1,17 +1,62 @@
-<!-- @dsCard group="Data" height=300 subtitle="Navy header, zebra rows, attention rows" -->
+<!-- @dsCard group="Data" height=340 subtitle="Navy header, zebra rows, an attention row and a status note" -->
+<meta charset="utf-8">
 <link rel="stylesheet" href="../../dist/tokens.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
-<div style="background:var(--bg-paper); padding:24px; font-family:var(--font-sans); color:var(--ink)">
-  <table style="width:100%; border-collapse:collapse; font-size:13px">
-    <tr style="background:var(--navy); color:#ffffff">
-      <th style="text-align:left; padding:8px 12px">Account</th>
-      <th style="text-align:right; padding:8px 12px">Emails sent</th>
-      <th style="text-align:right; padding:8px 12px">Delivered</th>
-      <th style="text-align:right; padding:8px 12px">Hard bounce</th>
+<style>
+  /* Previews are drawn at slide scale (1664px content width, the sizes in the
+     type scale) and shrunk to fit the page, so what you read here is the real
+     component, not a miniature drawn with smaller numbers. */
+  body { margin: 0; }
+  .ds-scale { zoom: .5; font-family: var(--font-sans); color: var(--text-primary); }
+  .ds-ground { width: 1664px; padding: var(--space-5); }
+  .ds-row { display: flex; gap: var(--space-4); }
+  .ds-col { display: flex; flex-direction: column; gap: var(--space-2); }
+  .ds-card { background: var(--card-bg); border-radius: var(--radius-card);
+             box-shadow: var(--shadow-card); padding: var(--space-5); }
+  .ds-card-dark { background: var(--card-inverse-bg); color: var(--text-inverse);
+                  border-radius: var(--radius-card); box-shadow: var(--shadow-card-dark);
+                  padding: var(--space-5); }
+  .ds-pill { border-radius: var(--radius-pill);
+             padding: var(--space-pill-y) var(--space-pill-x); }
+  p, h1, h2, h3 { margin: 0; }
+</style>
+<div class="ds-scale"><div class="ds-ground" style="background:var(--surface-page)">
+  <table class="t-body" style="width:100%; border-collapse:collapse">
+    <tr style="background:var(--table-header-bg); color:var(--text-inverse)">
+      <th class="t-label" style="text-align:left; padding:var(--space-2) var(--space-3)">Account</th>
+      <th class="t-label" style="text-align:right; padding:var(--space-2) var(--space-3)">Emails sent</th>
+      <th class="t-label" style="text-align:right; padding:var(--space-2) var(--space-3)">Delivered</th>
+      <th class="t-label" style="text-align:right; padding:var(--space-2) var(--space-3)">Hard bounce</th>
+      <th class="t-label" style="text-align:left; padding:var(--space-2) var(--space-3)">Note</th>
     </tr>
-    <tr style="background:var(--bg-paper); border-bottom:1px solid var(--line)"><td style="padding:8px 12px; font-weight:700">Account A</td><td style="text-align:right; padding:8px 12px">6,00,000</td><td style="text-align:right; padding:8px 12px">96.2%</td><td style="text-align:right; padding:8px 12px">0.02%</td></tr>
-    <tr style="background:var(--surface-zebra); border-bottom:1px solid var(--line)"><td style="padding:8px 12px; font-weight:700">Account B</td><td style="text-align:right; padding:8px 12px">3,50,000</td><td style="text-align:right; padding:8px 12px">96.3%</td><td style="text-align:right; padding:8px 12px">0.04%</td></tr>
-    <tr style="background:var(--attention-bg); border-bottom:1px solid var(--line)"><td style="padding:8px 12px; font-weight:700">Account C</td><td style="text-align:right; padding:8px 12px">3,20,000</td><td style="text-align:right; padding:8px 12px">95.7%</td><td style="text-align:right; padding:8px 12px; font-weight:700; color:var(--attention-ink)">0.8%</td></tr>
+    <tr style="background:var(--surface-page); border-bottom:2px solid var(--border-subtle)">
+      <td style="padding:var(--space-2) var(--space-3); font-weight:700">Account A</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">6,00,000</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">96.2%</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">0.02%</td>
+      <td style="padding:var(--space-2) var(--space-3)"><span style="display:inline-block; width:16px; height:16px; border-radius:var(--radius-round); background:var(--status-success)"></span> Healthy</td>
+    </tr>
+    <tr style="background:var(--table-row-alt-bg); border-bottom:2px solid var(--border-subtle)">
+      <td style="padding:var(--space-2) var(--space-3); font-weight:700">Account B</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">3,50,000</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">96.3%</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">0.04%</td>
+      <td style="padding:var(--space-2) var(--space-3)"><span style="display:inline-block; width:16px; height:16px; border-radius:var(--radius-round); background:var(--status-info)"></span> Warming</td>
+    </tr>
+    <tr style="background:var(--attention-bg); border-bottom:2px solid var(--border-subtle)">
+      <td style="padding:var(--space-2) var(--space-3); font-weight:700">Account C</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">3,20,000</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">95.7%</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3); font-weight:700; color:var(--attention-ink)">0.8%</td>
+      <td style="padding:var(--space-2) var(--space-3); color:var(--attention-ink); font-weight:700"><span style="display:inline-block; width:16px; height:16px; border-radius:var(--radius-round); background:var(--status-warning)"></span> Third day running</td>
+    </tr>
+    <tr style="background:var(--surface-page); border-bottom:2px solid var(--border-subtle)">
+      <td style="padding:var(--space-2) var(--space-3); font-weight:700">Account D</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">0</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">&#8212;</td>
+      <td style="text-align:right; padding:var(--space-2) var(--space-3)">&#8212;</td>
+      <td style="padding:var(--space-2) var(--space-3)"><span style="display:inline-block; width:16px; height:16px; border-radius:var(--radius-round); background:var(--status-error)"></span> Sending paused</td>
+    </tr>
   </table>
-  <p style="font-size:12px; color:var(--ink-muted); margin:8px 0 0">Highlighted rows have a hard bounce rate of 0.5% or higher.</p>
-</div>
+  <p class="t-label" style="color:var(--text-secondary); margin-top:var(--space-2); font-weight:400">Highlighted rows have a hard bounce rate of 0.5% or higher.</p>
+</div></div>

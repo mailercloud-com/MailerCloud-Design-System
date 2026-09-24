@@ -44,7 +44,7 @@ def parse_shadow(v):
     return {"color": m.group(4), "offsetX": m.group(1) + "px", "offsetY": m.group(2) + "px", "blur": m.group(3) + "px", "spread": "0px"}
 
 def dtcg():
-    d = {"$description": f"MailerCloud Design System {TOK['version']}", "color": {}, "spacing": {}, "radius": {}, "shadow": {}, "font": {}}
+    d = {"$description": f"MailerCloud Design System {TOK['version']}", "color": {}, "spacing": {}, "radius": {}, "shadow": {}, "font": {}, "typography": {}}
     for t in TOK["color"]["tokens"]:
         m = ALIAS.match(t["value"])
         d["color"][t["name"]] = {"$type": "color", "$value": "{color.%s}" % m.group(1) if m else t["value"], "$description": t["usage"]}
@@ -53,6 +53,12 @@ def dtcg():
     for t in TOK["shadow"]["tokens"]: d["shadow"][t["name"]] = {"$type": "shadow", "$value": parse_shadow(t["value"]), "$description": t["usage"]}
     for k, v in TOK["type"]["families"].items():
         d["font"][k] = {"$type": "fontFamily", "$value": [x.strip().strip('"') for x in v.split(",")]}
+    for g in TOK["type"]["groups"]:
+        for st in g["styles"]:
+            d["typography"][st["name"]] = {"$type": "typography", "$value": {
+                "fontFamily": "{font.%s}" % (st.get("family") or g["family"]),
+                "fontSize": st["fontSize"], "fontWeight": st["fontWeight"], "lineHeight": st["lineHeight"],
+            }, "$description": f'{g["name"]}. {st["usage"]}'}
     return json.dumps(d, indent=2, ensure_ascii=False) + "\n"
 
 def site():
@@ -74,7 +80,9 @@ def site():
     sp = "".join(f'<div class="row"><b>{t["name"]}</b><span>{t["value"]}</span><div class="bar" style="width:{t["value"]}"></div></div>' for t in TOK["spacing"]["tokens"])
     rd = "".join(f'<div class="rd" style="border-radius:{t["value"]}"><b>{t["name"]}</b><span>{t["value"]}</span></div>' for t in TOK["radius"]["tokens"])
     sh = "".join(f'<div class="shd" style="box-shadow:{t["value"]}"><b>{t["name"]}</b></div>' for t in TOK["shadow"]["tokens"])
-    ty = "".join(f'<div class="ty"><span class="{s["name"]}">{html.escape(s.get("sample", s["name"]))}</span><small>{s["name"]} · {s["fontSize"]} · {s["fontWeight"]}</small></div>' for g in TOK["type"]["groups"] for s in g["styles"])
+    ty = "".join(f'<h3>{html.escape(g["name"])}</h3>' + "".join(
+        f'<div class="ty"><span class="{s["name"]}">{html.escape(s.get("sample", s["name"]))}</span><small>{s["name"]} · {s["fontSize"]} · {s["fontWeight"]}</small></div>'
+        for s in g["styles"]) for g in TOK["type"]["groups"])
     comps = []
     for p in sorted((ROOT / "components").glob("*/preview.html")):
         first = p.read_text().split("\n", 1)[0]
@@ -91,12 +99,12 @@ def site():
 body{{margin:0;font-family:var(--font-sans);color:var(--text-primary);background:var(--surface-page);line-height:1.5}}
 main{{max-width:1180px;margin:0 auto;padding:48px 32px 96px}} h1{{font-size:44px;margin:0 0 8px}} h2{{font-size:28px;margin:64px 0 16px;border-top:4px solid var(--ink);padding-top:16px}} h3{{font-size:18px;margin:32px 0 12px}}
 .lead{{font-size:18px;color:var(--text-secondary);max-width:760px}} .swgrid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}}
-.sw{{display:flex;flex-direction:column;gap:2px;font-size:13px}} .sw .chip{{height:56px;border-radius:12px;border:1px solid var(--border-subtle);margin-bottom:6px}} .sw span{{color:var(--text-secondary)}} .sw i{{font-style:normal;color:var(--text-secondary);font-size:12px}}
-.row{{display:flex;align-items:center;gap:16px;margin:6px 0;font-size:14px}} .row b{{width:180px}} .row span{{width:70px;color:var(--text-secondary)}} .bar{{height:14px;background:var(--brand-blue);border-radius:4px}}
+.sw{{display:flex;flex-direction:column;gap:2px;font-size:13px}} .sw .chip{{height:56px;border-radius:var(--radius-tile);border:1px solid var(--border-subtle);margin-bottom:6px}} .sw span{{color:var(--text-secondary)}} .sw i{{font-style:normal;color:var(--text-secondary);font-size:12px}}
+.row{{display:flex;align-items:center;gap:16px;margin:6px 0;font-size:14px}} .row b{{width:180px}} .row span{{width:70px;color:var(--text-secondary)}} .bar{{height:14px;background:var(--brand-blue);border-radius:var(--radius-pill)}}
 .rd{{display:inline-flex;flex-direction:column;gap:4px;width:150px;height:90px;margin:0 16px 16px 0;background:var(--bg-sky);align-items:center;justify-content:center;font-size:13px}}
 .shd{{display:inline-flex;width:170px;height:90px;margin:0 24px 24px 0;background:var(--surface-raised);border-radius:var(--radius-card);align-items:center;justify-content:center;font-size:13px}}
 .ty{{margin:12px 0;display:flex;flex-direction:column}} .ty small{{color:var(--text-secondary)}}
-.comp iframe{{width:100%;border:1px solid var(--border-subtle);border-radius:12px;background:#fff}} a{{color:var(--text-link);text-decoration:underline}}
+.comp iframe{{width:100%;border:1px solid var(--border-subtle);border-radius:var(--radius-tile);background:#fff}} a{{color:var(--text-link);text-decoration:underline}}
 </style></head><body><main>
 <h1>MailerCloud Design System</h1>
 <p class="lead">Version {TOK['version']}. Generated from <code>tokens/tokens.json</code> by <code>scripts/build_tokens.py</code>. Brand rules, accessibility, data visualisation and governance are in <code>docs/</code>.</p>
@@ -110,8 +118,39 @@ main{{max-width:1180px;margin:0 auto;padding:48px 32px 96px}} h1{{font-size:44px
 </main></body></html>
 """
 
+A11Y = ROOT / "docs" / "foundations" / "accessibility.md"
+BEGIN, END = "<!-- BEGIN generated contrast matrix -->", "<!-- END generated contrast matrix -->"
+
+def matrix():
+    """The contrast table in accessibility.md, rendered from the approved pairs."""
+    by = {t["name"]: t for t in TOK["color"]["tokens"]}
+    by["white-on-error-large"] = {"value": "#ffffff"}
+    def hexv(n):
+        v = by[n]["value"]; m = ALIAS.match(v)
+        return hexv(m.group(1)) if m else v
+    def lum(h):
+        h = h.lstrip("#"); r, g, b = [int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+        f = lambda c: c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+        return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b)
+    pairs = json.loads((ROOT / "scripts" / "contrast_pairs.json").read_text())["pairs"]
+    rows = ["| Foreground | Background | Ratio | Use |", "| --- | --- | --- | --- |"]
+    for fg, bg, need in pairs:
+        a, b = sorted((lum(hexv(fg)), lum(hexv(bg))), reverse=True)
+        r = (a + 0.05) / (b + 0.05)
+        use = ("Large text (24px+ bold or 32px+) and graphics only" if need == 3
+               else "AAA, any text" if r >= 7 else "AA, any text")
+        rows.append(f"| `{fg}` | `{bg}` | {r:.1f}:1 | {use} |")
+    return "\n".join(rows)
+
+def a11y():
+    text = A11Y.read_text()
+    head, _, rest = text.partition(BEGIN)
+    _, _, tail = rest.partition(END)
+    return f"{head}{BEGIN}\n\n{matrix()}\n\n{END}{tail}"
+
 def main():
-    out = {ROOT / "dist" / "tokens.css": css(), ROOT / "dist" / "tokens.dtcg.json": dtcg(), ROOT / "index.html": site()}
+    out = {ROOT / "dist" / "tokens.css": css(), ROOT / "dist" / "tokens.dtcg.json": dtcg(),
+           ROOT / "index.html": site(), A11Y: a11y()}
     if "--check" in sys.argv:
         bad = [str(p.relative_to(ROOT)) for p, c in out.items() if not p.exists() or p.read_text() != c]
         if bad:

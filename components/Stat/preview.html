@@ -1,31 +1,63 @@
-<!-- @dsCard group="Data" height=230 subtitle="Big figure with a label; KPI tiles" -->
+<!-- @dsCard group="Data" height=460 subtitle="Slide figures at slide scale, report tiles at page scale" -->
+<meta charset="utf-8">
 <link rel="stylesheet" href="../../dist/tokens.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
-<div style="background:var(--bg-pink); padding:32px; font-family:var(--font-sans); color:var(--ink)">
-  <div style="display:flex">
-    <div style="flex:1; padding-right:24px">
-      <div style="font-size:40px; font-weight:700; line-height:1.1">6 Billion+</div>
-      <div style="font-size:15px; line-height:1.4; margin-top:4px">emails delivered every month</div>
+<style>
+  /* Previews are drawn at slide scale (1664px content width, the sizes in the
+     type scale) and shrunk to fit the page, so what you read here is the real
+     component, not a miniature drawn with smaller numbers. */
+  body { margin: 0; }
+  .ds-scale { zoom: .5; font-family: var(--font-sans); color: var(--text-primary); }
+  .ds-ground { width: 1664px; padding: var(--space-5); }
+  .ds-row { display: flex; gap: var(--space-4); }
+  .ds-col { display: flex; flex-direction: column; gap: var(--space-2); }
+  .ds-card { background: var(--card-bg); border-radius: var(--radius-card);
+             box-shadow: var(--shadow-card); padding: var(--space-5); }
+  .ds-card-dark { background: var(--card-inverse-bg); color: var(--text-inverse);
+                  border-radius: var(--radius-card); box-shadow: var(--shadow-card-dark);
+                  padding: var(--space-5); }
+  .ds-pill { border-radius: var(--radius-pill);
+             padding: var(--space-pill-y) var(--space-pill-x); }
+  p, h1, h2, h3 { margin: 0; }
+  .ds-report { width: 720px; padding: var(--space-4); background: var(--surface-page);
+               font-family: var(--font-sans); color: var(--text-primary); }
+</style>
+<div class="ds-scale"><div class="ds-ground" style="background:var(--bg-pink)">
+  <p class="t-label" style="color:var(--text-secondary); font-weight:400; margin-bottom:var(--space-3)">On a slide, 1920 &#215; 1080</p>
+  <div class="ds-row" style="gap:0">
+    <div style="flex:1; padding-right:var(--space-5)">
+      <p class="t-title">6 Billion+</p>
+      <p class="t-body" style="margin-top:var(--space-1)">emails delivered every month</p>
     </div>
-    <div style="flex:1; padding:0 24px; border-left:3px solid var(--ink)">
-      <div style="font-size:40px; font-weight:700; line-height:1.1">95%</div>
-      <div style="font-size:15px; line-height:1.4; margin-top:4px">client retention</div>
+    <div style="flex:1; padding:0 var(--space-5); border-left:3px solid var(--border-strong)">
+      <p class="t-title">98%</p>
+      <p class="t-body" style="margin-top:var(--space-1)">client retention</p>
     </div>
-    <div style="flex:1; padding-left:24px; border-left:3px solid var(--ink)">
-      <div style="font-size:40px; font-weight:700; line-height:1.1">50K+</div>
-      <div style="font-size:15px; line-height:1.4; margin-top:4px">monthly campaigns</div>
+    <div style="flex:1; padding-left:var(--space-5); border-left:3px solid var(--border-strong)">
+      <p class="t-title">50K+</p>
+      <p class="t-body" style="margin-top:var(--space-1)">monthly campaigns</p>
     </div>
   </div>
-  <div style="display:flex; gap:12px; margin-top:24px">
-    <div style="flex:1; background:var(--surface-zebra); border-radius:var(--radius-tile); padding:12px 16px">
-      <div style="font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--ink-muted)">Delivered</div>
-      <div style="font-size:24px; font-weight:700">1,20,000</div>
-      <div style="font-size:12px">96.0% of sent</div>
+</div></div>
+
+<!-- The report tiles are A4 artwork set in points, so they are shown at page
+     size rather than at the slide scale above. -->
+<div class="ds-report">
+  <p class="r-footnote" style="color:var(--text-secondary)">In a report, A4 at 100%</p>
+  <div style="background:var(--surface-tint); border-radius:var(--radius-tile); padding:var(--space-3); margin-top:var(--space-2)">
+    <p class="r-subheading">Summary</p>
+    <p class="r-body">Delivery held above 96% across the three sending accounts. One account needs a closer look.</p>
+  </div>
+  <div class="ds-row" style="margin-top:var(--space-3); gap:var(--space-2)">
+    <div style="flex:1; background:var(--table-row-alt-bg); border-radius:var(--radius-tile); padding:var(--space-3)">
+      <p class="r-kpi-label" style="letter-spacing:.5px; text-transform:uppercase; color:var(--text-secondary)">Delivered</p>
+      <p class="r-kpi">1,20,000</p>
+      <p class="r-footnote">96.0% of sent</p>
     </div>
-    <div style="flex:1; background:var(--attention-bg); border-radius:var(--radius-tile); padding:12px 16px">
-      <div style="font-size:11px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--attention-ink)">Blocked</div>
-      <div style="font-size:24px; font-weight:700">480</div>
-      <div style="font-size:12px; font-weight:700; color:var(--attention-ink)">Worth a closer look</div>
+    <div style="flex:1; background:var(--attention-bg); border-left:6px solid var(--attention-line); border-radius:var(--radius-tile); padding:var(--space-3)">
+      <p class="r-kpi-label" style="letter-spacing:.5px; text-transform:uppercase; color:var(--attention-ink)">Blocked</p>
+      <p class="r-kpi">480</p>
+      <p class="r-footnote" style="font-weight:700; color:var(--attention-ink)">Worth a closer look</p>
     </div>
   </div>
 </div>
